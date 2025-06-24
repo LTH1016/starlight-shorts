@@ -38,19 +38,28 @@ cd ../backend
 npm install
 ```
 
-### 启动开发环境
+### 启动生产环境
 
-#### 方式一：使用 Docker Compose (推荐)
+#### 使用 Docker Compose (推荐)
 
 ```bash
 # 启动所有服务
+npm start
+# 或者
 docker-compose up -d
 
 # 查看日志
+npm run logs
+# 或者
 docker-compose logs -f
+
+# 停止服务
+npm stop
+# 或者
+docker-compose down
 ```
 
-#### 方式二：手动启动
+#### 手动启动 (开发调试)
 
 ```bash
 # 1. 启动 MongoDB 和 Redis
@@ -162,20 +171,55 @@ npm test
 npm run lint
 ```
 
-## 🐳 Docker 部署
+## 🐳 生产环境部署
 
-### 开发环境
+### 使用 Docker Compose
 
 ```bash
-# 启动开发环境
-docker-compose -f docker-compose.dev.yml up -d
+# 启动所有服务
+npm start
+# 或者
+docker-compose up -d
+
+# 查看服务状态
+docker-compose ps
+
+# 查看日志
+npm run logs
+# 或者
+docker-compose logs -f
+
+# 停止服务
+npm stop
+# 或者
+docker-compose down
+
+# 重启服务
+npm restart
+# 或者
+docker-compose restart
 ```
 
-### 生产环境
+### 🛠️ 可用的管理命令
 
 ```bash
-# 构建并启动生产环境
-docker-compose -f docker-compose.prod.yml up -d
+# 生产环境管理
+npm start               # 启动所有服务
+npm stop                # 停止所有服务
+npm restart             # 重启所有服务
+npm run logs            # 查看日志
+
+# 开发调试
+npm run dev             # 本地开发模式
+npm run dev:frontend    # 只启动前端
+npm run dev:backend     # 只启动后端
+
+# 构建和测试
+npm run build           # 构建前后端
+npm run test            # 运行测试
+npm run lint            # 代码检查
+npm run clean           # 清理构建文件
+npm run install:all     # 安装所有依赖
 ```
 
 ## 📖 API 文档
