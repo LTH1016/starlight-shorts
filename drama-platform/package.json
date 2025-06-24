@@ -1,0 +1,64 @@
+{
+  "name": "drama-platform",
+  "version": "1.0.0",
+  "description": "一个现代化的短剧平台，提供完整的前后端解决方案",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && pnpm dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && pnpm build",
+    "build:backend": "cd backend && npm run build",
+    "start": "npm run start:backend",
+    "start:frontend": "cd frontend && pnpm preview",
+    "start:backend": "cd backend && npm start",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:frontend": "cd frontend && pnpm test",
+    "test:backend": "cd backend && npm test",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && pnpm lint",
+    "lint:backend": "cd backend && npm run lint",
+    "clean": "npm run clean:frontend && npm run clean:backend",
+    "clean:frontend": "cd frontend && rm -rf dist node_modules",
+    "clean:backend": "cd backend && rm -rf dist node_modules",
+    "install:all": "npm install && cd frontend && pnpm install && cd ../backend && npm install",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up -d",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "keywords": [
+    "drama",
+    "platform",
+    "react",
+    "nodejs",
+    "typescript",
+    "mongodb",
+    "redis",
+    "express",
+    "vite",
+    "tailwindcss"
+  ],
+  "author": "Drama Platform Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/drama-platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/drama-platform/issues"
+  },
+  "homepage": "https://github.com/your-username/drama-platform#readme"
+}
