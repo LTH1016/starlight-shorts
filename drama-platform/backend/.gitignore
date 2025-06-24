@@ -215,7 +215,5 @@ public/uploads/
 *.crt
 
 # Docker
-.dockerignore
-Dockerfile
 docker-compose.yml
 docker-compose.*.yml
